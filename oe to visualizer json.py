@@ -11,8 +11,8 @@ def translate(parsed_json):
   'weight' : len(parsed_json['weight']),
   'flows' : len(parsed_json['flows']),
   'pressures' : len(parsed_json['pressures']),
-}
-  elapsed = max(highest)
+  }
+  elapsed = max(highest, key=highest.get)
 
   # elapsed
   data['elapsed'] = []
