@@ -107,7 +107,7 @@ if __name__ == "__main__":
     for name in glob.glob('test/*.json'):
       json_files.append(name)
   except:
-    print('error')
+    print('Error')
   
   if json_files:
     for json_file in json_files:
@@ -117,5 +117,5 @@ if __name__ == "__main__":
       with open(f"test/output/visualizer_{file}", "w") as file:
         file.write(json.dumps(visualizer, indent=2))
   else:
-    print('no files found')
+    print('No files found in directory')
     
