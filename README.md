@@ -3,13 +3,13 @@
 
 ### Example files
 1. oe-test.json
-    - [Argos Night Brew](https://visualizer.coffee/shots/4cc0e959-5c3a-4254-a4ca-ecdd2af2052e)
+    - [Argos Night Brew](https://visualizer.coffee/shots/43a23304-ced0-4603-8373-f95d34021086)
 2. oe-scale-only.json
-    - [Argos Scale only](https://visualizer.coffee/shots/203758eb-bc88-43cf-8b71-a817449e9733)
+    - [Argos Scale only](https://visualizer.coffee/shots/f60016f5-4d97-4ab7-8db0-bff66aa03b07)
 3. oe-transducer-only.json
-    - [Argos Transducer only](https://visualizer.coffee/shots/6a15f02b-0a54-425a-aaa9-db1a13c7f00f)
+    - [Argos Transducer only](https://visualizer.coffee/shots/387fe103-e561-43c2-aa0c-c178fab675b5)
 4. oe-scale-transducer.json
-    - [Argos Scale and transducer](https://visualizer.coffee/shots/eea6515a-252d-46ac-bd20-50c2d1b1cb8f)
+    - [Argos Scale and transducer](https://visualizer.coffee/shots/16c0458d-1585-4210-9f72-6f2641621851)
 
 
 ### Instructions

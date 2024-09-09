@@ -34,6 +34,10 @@ def translate(parsed_json):
   for i in parsed_json['flows']:
     data['flow']['by_weight'].append(str(i['y']))
     
+  # temp
+  mult = len(parsed_json[elapsed])
+  data['temperature']['goal'] = [parsed_json.get('brewTemp')] * mult
+  
   fix_issues(data)
   
   return data
@@ -70,7 +74,6 @@ def main(json_file):
   if grinder_setting == "None":
     grinder_setting = ""
   drink_weight = parsed_json.get('highestScaleWeight')
-  brewtemp = parsed_json.get('brewTemp')
 
   profile = {
     "clock" : str(epoch),
