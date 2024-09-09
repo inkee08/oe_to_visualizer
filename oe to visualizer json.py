@@ -74,6 +74,7 @@ def main(json_file):
   if grinder_setting == "None":
     grinder_setting = ""
   drink_weight = parsed_json.get('highestScaleWeight')
+  bean_notes = parsed_json.get('flavorNotes')
 
   profile = {
     "clock" : str(epoch),
@@ -91,6 +92,7 @@ def main(json_file):
           "grinder_model": grinder_model,
           "bean_brand": roastery,
           "bean_type": "",
+          "bean_notes": bean_notes,
           "drink_weight": drink_weight
         },
       }
