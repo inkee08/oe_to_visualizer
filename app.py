@@ -50,10 +50,9 @@ def delete_expired_logs():
   LogEntry.delete_expired()
     
     
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['GET'])
 def index():
-  if request.method == 'GET':
-    return render_template('index.html')
+  return render_template('index.html')
   
 @app.route('/download/', methods=['GET'])
 def download():
