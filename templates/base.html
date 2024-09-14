@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translate JSON for Odyssey Espresso to Visualizer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+  {{ dropzone.load_css() }}
+  {{ dropzone.style('border: 2px dashed #709ad1; background: #1b2735; border-radius: 25px; margin: 10%; min-height: 300px; color: white;') }}
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+  <div class="main">
+    <h1 style="color:white">Convert Odyssey Espresso JSON files </h1>
+  {% block body %}{% endblock %}
+  </div>
+
+</body>
+</html>
+

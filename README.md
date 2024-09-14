@@ -14,7 +14,7 @@
 
 ### Instructions
 - Add files to 'test' directory
-- Use `python3 "oe to visualizer json.py"`
+- Use `python3 oe_translation.py`
 - New files will show in 'test/output' directory
 - Login to your [Visualizer](https://visualizer.coffee/shots) account and click '+ Upload'
 - Drag files to upload window

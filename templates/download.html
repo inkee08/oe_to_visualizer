@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block body %}
+
+
+
+{{ dropzone.create('process') }}
+{{ dropzone.load_js() }}
+{{ dropzone.config() }} 
+
+<div class="night">
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+</div>
+
+
+<table>
+  <tr>
+    <th align='left'> Files: </th>
+
+  </tr>
+
+  <tr>
+    <td> <a href={{ url_for('sendzip') }}> visualizer_json.zip </a></td>
+  </tr>
+  <tr>
+    <td> 
+<div class="content">
+
+
+  {% for k, v in files.items() %}
+  
+
+    <a href={{ url_for('sendfile', value=v) }}> visualizer_{{ k }} </a><br>
+  
+  {% endfor %}
+</td>
+</tr>
+</table>
+</div>
+
+
+
+{% endblock %}

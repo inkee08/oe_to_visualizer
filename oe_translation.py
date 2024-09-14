@@ -33,7 +33,11 @@ def translate(parsed_json):
   data['flow']['by_weight'] = []
   for i in parsed_json['flows']:
     data['flow']['by_weight'].append(str(i['y']))
-    
+  
+  # temp
+  mult = len(parsed_json[elapsed])
+  data['temperature']['goal'] = [parsed_json.get('brewTemp')] * mult
+  
   # temp
   mult = len(parsed_json[elapsed])
   data['temperature']['goal'] = [parsed_json.get('brewTemp')] * mult
@@ -56,10 +60,7 @@ def fix_issues(data):
   if count != 0:
     data['flow']['by_weight'] = data['flow']['by_weight'][:-count]
 
-def main(json_file):
-  with open(json_file) as user_file:
-    parsed_json = json.load(user_file)
-    
+def main(parsed_json):
   # from Odyssey Json file
   name = f"Argos {parsed_json['name']}"
   date = parsed_json.get('date')
@@ -117,7 +118,11 @@ if __name__ == "__main__":
   if json_files:
     for json_file in json_files:
       file = json_file.split('\\')[-1]
-      visualizer = main(json_file)
+      
+      with open(json_file) as user_file:
+        parsed_json = json.load(user_file)
+
+      visualizer = main(parsed_json)
       
       with open(f"test/output/visualizer_{file}", "w") as file:
         file.write(json.dumps(visualizer, indent=2))

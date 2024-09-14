@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+
+
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+{{ dropzone.create('process') }}
+{{ dropzone.load_js() }}
+{{ dropzone.config() }} 
+
+<div class="night">
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+</div>
+
+
+
+
+
+{% endblock %}
