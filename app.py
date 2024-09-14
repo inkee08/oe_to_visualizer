@@ -145,5 +145,5 @@ sched.add_job(delete_expired_logs,'interval', seconds=30)
 sched.start()
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', port=80)
+  app.run()
   
