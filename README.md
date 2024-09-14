@@ -18,3 +18,8 @@
 - New files will show in 'test/output' directory
 - Login to your [Visualizer](https://visualizer.coffee/shots) account and click '+ Upload'
 - Drag files to upload window
+
+### Webapp for testing
+https://oevisualizer-etnazwej.b4a.run/
+- No files saved no host platform.
+- Input JSON saved temporarily in a database, for processing, which is purged 5 minutes later.
