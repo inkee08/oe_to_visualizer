@@ -21,5 +21,5 @@
 
 ### Webapp for testing
 https://oevisualizer-etnazwej.b4a.run/
-- No files saved no host platform.
-- Input JSON saved temporarily in a database, for processing, which is purged 5 minutes later.
+- No files saved on host platform.
+- Input JSON saved temporarily in a database for processing, then purged 5 minutes later.
