@@ -140,6 +140,13 @@ def process():
     print(tlist)
     return 'OK'
 
+@app.route('/api', methods=['POST'])
+def api():
+  if request.method == 'POST':
+    request_data = request.get_json()
+    translated = json.dumps(oe_translation.main(request_data))
+    return translated
+
 sched = BackgroundScheduler(daemon=True)
 sched.add_job(delete_expired_logs,'interval', seconds=30)
 sched.start()
