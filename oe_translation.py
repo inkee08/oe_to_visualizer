@@ -1,7 +1,9 @@
 import json
+import requests
+import getpass
+from requests.auth import HTTPBasicAuth 
 from datetime import datetime, timezone
 from collections import defaultdict
-import glob
 
 
 def translate(parsed_json):
@@ -38,17 +40,14 @@ def translate(parsed_json):
   mult = len(parsed_json[elapsed])
   data['temperature']['goal'] = [parsed_json.get('brewTemp')] * mult
   
-  # temp
-  mult = len(parsed_json[elapsed])
-  data['temperature']['goal'] = [parsed_json.get('brewTemp')] * mult
-  
-  fix_issues(data)
+  # fix_issues(data)
   
   return data
   
 def fix_issues(data):
   
   # delete ending 0s in flow list
+  # not an issue with api upload
   count = 0
   for i in reversed(data['flow']['by_weight']):
     if count == 0 and float(i) > 0:
@@ -67,6 +66,12 @@ def main(parsed_json):
   dt = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ")
   date_long = dt.astimezone(timezone.utc).strftime("%a %b %d %H:%M:%S %Z %Y")
   epoch = int(dt.timestamp())
+  
+  # # test
+  # date = datetime.now()
+  # date_long = date.astimezone(timezone.utc).strftime("%a %b %d %H:%M:%S %Z %Y")
+  # epoch = int(datetime.now().timestamp())
+
   roastery = f"{parsed_json.get('roastery')} {parsed_json.get('beans')}"
   dosage = parsed_json.get('dosage', 'null')
   grinder_brand = parsed_json.get('grindBrand', '')
@@ -106,26 +111,33 @@ def main(parsed_json):
   
   return visualizer
 
+def apiTest():
+  with open('test/oe-scale-transducer.json') as f:
+    parsed_json = json.load(f)
+  translated_json = json.dumps(main(parsed_json))
+
+  url = "https://visualizer.coffee/api/shots/upload"
+
+  payload = translated_json
+  headers = {
+    'Content-Type': 'application/json'
+  }
+
+  username = input('Visualizer Email: ')
+  while not username:
+    username = input('Visualizer Email: ')
+  password = getpass.getpass()
+  while not password:
+    password = getpass.getpass()
+  
+  response = requests.post(url, headers=headers, data=payload, auth=HTTPBasicAuth(username, password))
+  
+  if response.status_code == 200:
+    print('Successfully posted shot')
+    print(f'https://visualizer.coffee/shots/{response.json().get('id')}')
+  else:
+    print(f'Unsuccessful, Reason: {response.reason}')
+
 if __name__ == "__main__":
 
-  try: 
-    json_files = []
-    for name in glob.glob('test/*.json'):
-      json_files.append(name)
-  except:
-    print('Error')
-  
-  if json_files:
-    for json_file in json_files:
-      file = json_file.split('\\')[-1]
-      
-      with open(json_file) as user_file:
-        parsed_json = json.load(user_file)
-
-      visualizer = main(parsed_json)
-      
-      with open(f"test/output/visualizer_{file}", "w") as file:
-        file.write(json.dumps(visualizer, indent=2))
-  else:
-    print('No files found in directory')
-    
+  apiTest()
