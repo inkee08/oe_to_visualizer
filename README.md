@@ -1,4 +1,4 @@
-# Import Odyssey Espresso Json file to [Visualizer](https://visualizer.coffee/)
+# Import Odyssey Espresso JSON to [Visualizer](https://visualizer.coffee/)
 
 
 ### Example files
@@ -9,17 +9,9 @@
 3. oe-transducer-only.json
     - [Argos Transducer only](https://visualizer.coffee/shots/387fe103-e561-43c2-aa0c-c178fab675b5)
 4. oe-scale-transducer.json
-    - [Argos Scale and transducer](https://visualizer.coffee/shots/16c0458d-1585-4210-9f72-6f2641621851)
+    - [Argos Scale and transducer](https://visualizer.coffee/shots/0ae122ca-17bb-4478-b323-a1520c342249)
 
 
-### Instructions
-- Add files to 'test' directory
-- Use `python3 oe_translation.py`
-- New files will show in 'test/output' directory
-- Login to your [Visualizer](https://visualizer.coffee/shots) account and click '+ Upload'
-- Drag files to upload window
-
-### Webapp for testing
-https://oevisualizer-etnazwej.b4a.run/
-- No files saved on host platform.
-- Input JSON saved temporarily in a database for processing, then purged 5 minutes later.
+### Description
+- Translate Odyssey Espresso JSON data to a JSON format that Visualizer will accept
+- Utilize Visualizer API to POST shot information and return the shot id 
